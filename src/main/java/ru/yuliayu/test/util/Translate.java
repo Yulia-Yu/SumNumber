@@ -1,14 +1,30 @@
 package ru.yuliayu.test.util;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 public class Translate {
     public static String sumProp(int num, String sGender, String sCase){
         String res = "";
+        NumberComposition numberCom = new NumberComposition();
+        numberCom.numberComposition(num);
+        ArrayList<Integer> composition = numberCom.getComposition();
+        for(int i : composition){
+            res += translate(i, res, sGender, sCase);
+        }
+        return res;
+    }
+
+    private static String translate(int num, String res, String sGender, String sCase){
         switch (num){
+            case 0:
+                res = "";
+                break;
             case 1:
-                res = one(sGender, sCase);
+                res = one(sGender, sCase) + " ";
                 break;
             case 2:
-                res = two(sGender, sCase);
+                res = two(sGender, sCase) + " ";
                 break;
             case 3:
                 res = three(sGender, sCase);
@@ -77,10 +93,10 @@ public class Translate {
                 res = sixty(sGender, sCase);
                 break;
             case 70:
-                res = seventeen(sGender, sCase);
+                res = seventy(sGender, sCase);
                 break;
             case 80:
-                res = eghteen(sGender, sCase);
+                res = eighty(sGender, sCase);
                 break;
             case 90:
                 res = ninety(sGender, sCase);
@@ -94,20 +110,38 @@ public class Translate {
             case 300:
                 res = threeHundred(sGender, sCase);
                 break;
+            case 400:
+                res = fourHundred(sGender, sCase);
+                break;
+            case 500:
+                res = fiveHundred(sGender, sCase);
+                break;
+            case 600:
+                res = sixHundred(sGender, sCase);
+                break;
+            case 700:
+                res = sevenHundred(sGender, sCase);
+                break;
+            case 800:
+                res = eightHundred(sGender, sCase);
+                break;
+            case 900:
+                res = nineHundred(sGender, sCase);
+                break;
         }
         return res;
     }
 
     private static String one(String sGender, String sCase){
-        if(sGender == "M" && (sCase == "Им" || sCase == "В")){
+        if(sGender == "М" && (Objects.equals(sCase, "Им") || sCase == "В")){
             return "один";
-        } else if (sCase == "Р" && (sGender == "С" || sGender == "M" )){
+        } else if (sCase == "Р" && (sGender == "С" || sGender == "М" )){
             return "одного";
-        } else if (sCase == "Д" && (sGender == "С" || sGender == "M" )){
+        } else if (sCase == "Д" && (sGender == "С" || sGender == "М" )){
             return "одному";
-        } else if (sCase == "Т" && (sGender == "С" || sGender == "M" )){
+        } else if (sCase == "Т" && (sGender == "С" || sGender == "М" )){
             return "одним";
-        } else if (sCase == "П" && (sGender == "С" || sGender == "M" )){
+        } else if (sCase == "П" && (sGender == "С" || sGender == "М" )){
             return "одном";
         } else if(sGender == "С" && (sCase == "Им" || sCase == "В")){
             return "одно";
@@ -122,7 +156,7 @@ public class Translate {
     }
 
     private static String two(String sGender, String sCase){
-        if((sGender == "M" || sGender == "C") && (sCase == "Им" || sCase == "В")){
+        if((sGender == "М" || sGender == "С") && (sCase == "Им" || sCase == "В")){
             return "два";
         } else if (sCase == "Р" || sCase == "П"){
             return "двух";
