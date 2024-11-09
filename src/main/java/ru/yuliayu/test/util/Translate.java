@@ -1,16 +1,34 @@
 package ru.yuliayu.test.util;
 
+import ru.yuliayu.test.etity.Billion;
+import ru.yuliayu.test.etity.Million;
+import ru.yuliayu.test.etity.Thousand;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class Translate {
-    public static String sumProp(int num, String sGender, String sCase){
+    public static String sumProp(long num, String sGender, String sCase){
         String res = "";
         NumberComposition numberCom = new NumberComposition();
         numberCom.numberComposition(num);
-        ArrayList<Integer> composition = numberCom.getComposition();
-        for(int i : composition){
-            res += translate(i, res, sGender, sCase);
+        ArrayList<Long> composition = numberCom.getComposition();
+        int numLen = composition.size();
+        for(long i : composition){
+            numLen--;
+            if(numLen < 3){
+                res += translate((int)i, res, sGender, sCase);
+            } else if (numLen <= 5){
+                res += translate((int) (i/1000), res, "Ж", sCase);
+            } else if (numLen <= 8) {
+                res += translate((int) (i/1000000), res, "М", sCase);
+            } else if (numLen <= 11) {
+                res += translate((int) (i/1000000000), res, "М", sCase);
+            }
+            res += i != 0 ?  " " : "";
+            if(numLen == 3 && (num / 1000 % 1000) != 0) res += Thousand.thousand((int)i/1000, sCase);
+            if(numLen == 6 && (num / 1000000 % 1000000) != 0) res += Million.million((int)i/1000000, sCase);
+            if(numLen == 9 && (num / 1000000000 % 1000000000) != 0) res += Billion.billion((int)i/1000000000, sCase);
         }
         return res;
     }
@@ -21,10 +39,10 @@ public class Translate {
                 res = "";
                 break;
             case 1:
-                res = one(sGender, sCase) + " ";
+                res = one(sGender, sCase);
                 break;
             case 2:
-                res = two(sGender, sCase) + " ";
+                res = two(sGender, sCase);
                 break;
             case 3:
                 res = three(sGender, sCase);

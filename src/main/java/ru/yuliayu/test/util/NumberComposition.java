@@ -4,23 +4,31 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class NumberComposition {
-    private ArrayList<Integer> composition = new ArrayList<Integer>();
+    private ArrayList<Long> composition = new ArrayList<Long>();
 
-    public ArrayList<Integer> getComposition() {
+    public ArrayList<Long> getComposition() {
         return composition;
     }
 
-    public void setComposition(ArrayList<Integer> composition) {
+    public void setComposition(ArrayList<Long> composition) {
         this.composition = composition;
     }
 
-    public void numberComposition(int num){
-        int length = String.valueOf(num).length();
-        for(int i = length; i > 0; i--){
-            int a = (int) (num / Math.pow(10, i - 1));
-            int b = (int) (a * Math.pow(10, i - 1));
+    public void numberComposition(long num){
+        int length = (int) String.valueOf(num).length();
+        while(length > 0){
+            long a = (long) (num / Math.pow(10, length - 1));
+            long b = (long) (a * Math.pow(10, length - 1));
+            if((length == 8 || length == 5 || length == 2) && a == 1){
+                composition.add(0L);
+                num = (long) (num % Math.pow(10, length - 1));
+                a = (long) (num / Math.pow(10, length - 2));
+                b += a;
+                length--;
+            }
             composition.add(b);
-            num = (int) (num % Math.pow(10, i - 1));
+            num = (long) (num % Math.pow(10, length - 1));
+            length--;
         }
     }
 }
