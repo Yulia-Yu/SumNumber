@@ -1,8 +1,6 @@
 package ru.yuliayu.test.util;
 
-import ru.yuliayu.test.etity.Billion;
-import ru.yuliayu.test.etity.Million;
-import ru.yuliayu.test.etity.Thousand;
+import ru.yuliayu.test.etity.*;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -39,31 +37,31 @@ public class Translate {
                 res = "";
                 break;
             case 1:
-                res = one(sGender, sCase);
+                res = Figures.one(sGender, sCase);
                 break;
             case 2:
-                res = two(sGender, sCase);
+                res = Figures.two(sGender, sCase);
                 break;
             case 3:
-                res = three(sGender, sCase);
+                res = Figures.three(sGender, sCase);
                 break;
             case 4:
-                res = four(sGender, sCase);
+                res = Figures.four(sGender, sCase);
                 break;
             case 5:
-                res = five(sGender, sCase);
+                res = Figures.five(sGender, sCase);
                 break;
             case 6:
-                res = six(sGender, sCase);
+                res = Figures.six(sGender, sCase);
                 break;
             case 7:
-                res = seven(sGender, sCase);
+                res = Figures.seven(sGender, sCase);
                 break;
             case 8:
-                res = eight(sGender, sCase);
+                res = Figures.eight(sGender, sCase);
                 break;
             case 9:
-                res = nine(sGender, sCase);
+                res = Figures.nine(sGender, sCase);
                 break;
             case 10:
                 res = ten(sGender, sCase);
@@ -120,154 +118,36 @@ public class Translate {
                 res = ninety(sGender, sCase);
                 break;
             case 100:
-                res = oneHundred(sGender, sCase);
+                res = Hundred.oneHundred(sGender, sCase);
                 break;
             case 200:
-                res = twoHundred(sGender, sCase);
+                res = Hundred.twoHundred(sGender, sCase);
                 break;
             case 300:
-                res = threeHundred(sGender, sCase);
+                res = Hundred.threeHundred(sGender, sCase);
                 break;
             case 400:
-                res = fourHundred(sGender, sCase);
+                res = Hundred.fourHundred(sGender, sCase);
                 break;
             case 500:
-                res = fiveHundred(sGender, sCase);
+                res = Hundred.fiveHundred(sGender, sCase);
                 break;
             case 600:
-                res = sixHundred(sGender, sCase);
+                res = Hundred.sixHundred(sGender, sCase);
                 break;
             case 700:
-                res = sevenHundred(sGender, sCase);
+                res = Hundred.sevenHundred(sGender, sCase);
                 break;
             case 800:
-                res = eightHundred(sGender, sCase);
+                res = Hundred.eightHundred(sGender, sCase);
                 break;
             case 900:
-                res = nineHundred(sGender, sCase);
+                res = Hundred.nineHundred(sGender, sCase);
                 break;
         }
         return res;
     }
 
-    private static String one(String sGender, String sCase){
-        if(sGender == "М" && (Objects.equals(sCase, "Им") || sCase == "В")){
-            return "один";
-        } else if (sCase == "Р" && (sGender == "С" || sGender == "М" )){
-            return "одного";
-        } else if (sCase == "Д" && (sGender == "С" || sGender == "М" )){
-            return "одному";
-        } else if (sCase == "Т" && (sGender == "С" || sGender == "М" )){
-            return "одним";
-        } else if (sCase == "П" && (sGender == "С" || sGender == "М" )){
-            return "одном";
-        } else if(sGender == "С" && (sCase == "Им" || sCase == "В")){
-            return "одно";
-        } else if(sGender == "Ж" && sCase == "Им"){
-            return "одна";
-        } else if(sGender == "Ж" && sCase == "В"){
-            return "одну";
-        } else if (sGender == "Ж" && (sCase == "Р" || sCase == "Д" || sCase == "Т" || sCase == "П")){
-            return "одной";
-        }
-        return "";
-    }
-
-    private static String two(String sGender, String sCase){
-        if((sGender == "М" || sGender == "С") && (sCase == "Им" || sCase == "В")){
-            return "два";
-        } else if (sCase == "Р" || sCase == "П"){
-            return "двух";
-        } else if (sCase == "Д"){
-            return "двум";
-        } else if (sCase == "Т"){
-            return "двумя";
-        } else if(sGender == "Ж" && (sCase == "Им" || sCase == "В")){
-            return "две";
-        }
-        return "";
-    }
-
-    private static String three(String sGender, String sCase){
-        if(sCase == "Им" || sCase == "В"){
-            return "три";
-        } else if (sCase == "Р" || sCase == "П"){
-            return "трех";
-        } else if (sCase == "Д"){
-            return "трем";
-        } else if (sCase == "Т"){
-            return "тремя";
-        }
-        return "";
-    }
-
-    private static String four(String sGender, String sCase){
-        if(sCase == "Им" || sCase == "В"){
-            return "четыре";
-        } else if (sCase == "Р" || sCase == "П"){
-            return "четырех";
-        } else if (sCase == "Д"){
-            return "четырем";
-        } else if (sCase == "Т"){
-            return "четырьмя";
-        }
-        return "";
-    }
-
-    private static String five(String sGender, String sCase){
-        if(sCase == "Им" || sCase == "В"){
-            return "пять";
-        } else if (sCase == "Р" || sCase == "П" || sCase == "Д"){
-            return "пяти";
-        } else if (sCase == "Т"){
-            return "пятью";
-        }
-        return "";
-    }
-
-    private static String six(String sGender, String sCase){
-        if(sCase == "Им" || sCase == "В"){
-            return "шесть";
-        } else if (sCase == "Р" || sCase == "П" || sCase == "Д"){
-            return "шести";
-        } else if (sCase == "Т"){
-            return "шестью";
-        }
-        return "";
-    }
-
-    private static String seven(String sGender, String sCase){
-        if(sCase == "Им" || sCase == "В"){
-            return "семь";
-        } else if (sCase == "Р" || sCase == "П" || sCase == "Д"){
-            return "семи";
-        } else if (sCase == "Т"){
-            return "семью";
-        }
-        return "";
-    }
-
-    private static String eight(String sGender, String sCase){
-        if(sCase == "Им" || sCase == "В"){
-            return "восемь";
-        } else if (sCase == "Р" || sCase == "П" || sCase == "Д"){
-            return "восьми";
-        } else if (sCase == "Т"){
-            return "восьмью";
-        }
-        return "";
-    }
-
-    private static String nine(String sGender, String sCase){
-        if(sCase == "Им" || sCase == "В"){
-            return "девять";
-        } else if (sCase == "Р" || sCase == "П" || sCase == "Д"){
-            return "девяти";
-        } else if (sCase == "Т"){
-            return "девятью";
-        }
-        return "";
-    }
 
     private static String ten(String sGender, String sCase){
         if(sCase == "Им" || sCase == "В"){
@@ -463,134 +343,6 @@ public class Translate {
         return "";
     }
 
-    private static String oneHundred(String sGender, String sCase){
-        if(sCase == "Им" || sCase == "В"){
-            return "сто";
-        } else if (sCase == "Р" || sCase == "П" || sCase == "Д" || sCase == "Т"){
-            return "ста";
-        }
-        return "";
-    }
-
-    private static String twoHundred(String sGender, String sCase){
-        if(sCase == "Им" || sCase == "В"){
-            return "двести";
-        } else if (sCase == "Р" ){
-            return "двухсот";
-        }else if(sCase == "Д"){
-            return "двумстам";
-        }else if(sCase == "Т"){
-            return "двумястами";
-        }else if(sCase == "П"){
-            return "двухстах";
-        }
-        return "";
-    }
-
-    private static String threeHundred(String sGender, String sCase) {
-        if (sCase == "Им" || sCase == "В") {
-            return "триста";
-        } else if (sCase == "Р") {
-            return "трёхсот";
-        } else if (sCase == "Д") {
-            return "трёмстам";
-        } else if (sCase == "Т") {
-            return "тремястами";
-        } else if (sCase == "П") {
-            return "трёхстах";
-        }
-        return "";
-    }
-
-    private static String fourHundred(String sGender, String sCase) {
-        if (sCase == "Им" || sCase == "В") {
-            return "четыреста";
-        } else if (sCase == "Р") {
-            return "четырёхсот";
-        } else if (sCase == "Д") {
-            return "четырёмстам";
-        } else if (sCase == "Т") {
-            return "четырьмястами";
-        } else if (sCase == "П") {
-            return "четырёхстах";
-        }
-        return "";
-    }
-
-    private static String fiveHundred(String sGender, String sCase) {
-        if (sCase == "Им" || sCase == "В") {
-            return "пятьсот";
-        } else if (sCase == "Р") {
-            return "пятисот";
-        } else if (sCase == "Д") {
-            return "пятистам";
-        } else if (sCase == "Т") {
-            return "пятьюстами";
-        } else if (sCase == "П") {
-            return "пятистах";
-        }
-        return "";
-    }
-
-    private static String sixHundred(String sGender, String sCase) {
-        if (sCase == "Им" || sCase == "В") {
-            return "шестьсот";
-        } else if (sCase == "Р") {
-            return "шестисот";
-        } else if (sCase == "Д") {
-            return "шестистам";
-        } else if (sCase == "Т") {
-            return "шестьюстами";
-        } else if (sCase == "П") {
-            return "шестистах";
-        }
-        return "";
-    }
-
-    private static String sevenHundred(String sGender, String sCase) {
-        if (sCase == "Им" || sCase == "В") {
-            return "семьсот";
-        } else if (sCase == "Р") {
-            return "семисот";
-        } else if (sCase == "Д") {
-            return "семистам";
-        } else if (sCase == "Т") {
-            return "семьюстами";
-        } else if (sCase == "П") {
-            return "семистах";
-        }
-        return "";
-    }
-
-    private static String eightHundred(String sGender, String sCase) {
-        if (sCase == "Им" || sCase == "В") {
-            return "восемьсот";
-        } else if (sCase == "Р") {
-            return "восьмисот";
-        } else if (sCase == "Д") {
-            return "восьмистам";
-        } else if (sCase == "Т") {
-            return "восьмьюстами";
-        } else if (sCase == "П") {
-            return "восьмистах";
-        }
-        return "";
-    }
-
-    private static String nineHundred(String sGender, String sCase) {
-        if (sCase == "Им" || sCase == "В") {
-            return "девятьсот";
-        } else if (sCase == "Р") {
-            return "девятисот";
-        } else if (sCase == "Д") {
-            return "девятистам";
-        } else if (sCase == "Т") {
-            return "девятьюстами";
-        } else if (sCase == "П") {
-            return "девятистах";
-        }
-        return "";
-    }
 
 
 }
