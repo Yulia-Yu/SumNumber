@@ -1,8 +1,8 @@
 package ru.yuliayu.test.etity;
 
 public class Thousand {
-    public static String thousand(int num, String sCase){
-        if(num % 10 == 1 && num % 100 != 11){
+    public static String thousand(int num, String sCase) {
+        if (num % 10 == 1 && num % 100 != 11) {
             switch (sCase) {
                 case "Им":
                     return "тысяча ";
@@ -15,7 +15,7 @@ public class Thousand {
                 case "Т":
                     return "тысячей ";
             }
-        } else if(num % 10 > 1 && num % 10 <= 4 && (num % 100 > 20 || num % 100 < 10)){
+        } else if (num % 10 > 1 && num % 10 <= 4 && (num % 100 > 20 || num % 100 < 10)) {
             switch (sCase) {
                 case "Им", "В":
                     return "тысячи ";
@@ -28,7 +28,7 @@ public class Thousand {
                 case "П":
                     return "тысячях ";
             }
-        } else{
+        } else {
             switch (sCase) {
                 case "Им", "В", "Р":
                     return "тысяч ";

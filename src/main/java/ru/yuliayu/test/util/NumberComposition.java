@@ -1,7 +1,6 @@
 package ru.yuliayu.test.util;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class NumberComposition {
     private ArrayList<Long> composition = new ArrayList<Long>();
@@ -14,12 +13,12 @@ public class NumberComposition {
         this.composition = composition;
     }
 
-    public void numberComposition(long num){
+    public void numberComposition(long num) {
         int length = (int) String.valueOf(num).length();
-        while(length > 0){
+        while (length > 0) {
             long a = (long) (num / Math.pow(10, length - 1));
             long b = (long) (a * Math.pow(10, length - 1));
-            if((length == 8 || length == 5 || length == 2) && a == 1){
+            if ((length == 8 || length == 5 || length == 2) && a == 1) {
                 composition.add(0L);
                 num = (long) (num % Math.pow(10, length - 1));
                 a = (long) (num / Math.pow(10, length - 2));
