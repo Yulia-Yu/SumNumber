@@ -6,9 +6,10 @@ import ru.yuliayu.test.util.Translate;
 
 public class Main {
     public static void main(String[] arg) {
-        long num = 999999999999L;
+        // Именительный падеж = "Им", в остальных случаях первая заглавная буква названия падежа. 21017211019
+        long num = 21017211019L;
         String sGender = "М";
-        String sCase = "Им";
+        String sCase = "Т";
         System.out.println(Translate.sumProp(num, sGender, sCase));
     }
 }

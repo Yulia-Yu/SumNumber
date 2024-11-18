@@ -22,7 +22,7 @@ public class NumberComposition {
                 composition.add(0L);
                 num = (long) (num % Math.pow(10, length - 1));
                 a = (long) (num / Math.pow(10, length - 2));
-                b += a;
+                b += (long) a * Math.pow(10, length - 2);
                 length--;
             }
             composition.add(b);
